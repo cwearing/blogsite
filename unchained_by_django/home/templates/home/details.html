@@ -1,0 +1,23 @@
+<div class="card text-center">
+    <div class="card-title mt-5">
+        <h3 class="font-weight-bold">UNCHAINED</h3>
+    </div>
+	<div class="text-center">
+<h3 class="font-weight-bold">{{post.title}}</h3>
+<p>{{post.desc}}</p>
+</div>
+<div class ="mb-2">
+	<h4>Posted by <a href="{% url 'blog:author' 1 %}">{{post.author}}</a></h4>
+    <h4>Published on {{post.date}}</h4>
+	
+    <div class ="center">
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        <form action="{% url 'blog:edit' post.id %}">
+        <button class="btn btn-sm btn-primary" id="editButton">Edit Post</button>
+        </form>
+        <form action="{% url 'blog:home'%}">
+            <button class="btn btn-sm btn-primary" id="homeButton">Home</button>
+        </form>
+    </div>
+</div>
+</div>
